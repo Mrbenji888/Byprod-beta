@@ -2,56 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BTprod.com - AI Video Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BTprod.com</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>BTprod.com</h1>
-      <p class="subtitle">Next-Level AI Video Generator</p>
-    </header>
+    <h1 class="site-title">BTprod.com</h1>
+    <p class="subtitle">Next-Level AI Video Generator</p>
 
-    <div class="input-section">
-      <input
-        type="text"
-        id="promptInput"
-        placeholder="Type your cinematic idea..."
-        maxlength="450"
-      />
-      <button onclick="generateVideo()">Generate</button>
-      <div id="charCount">0 / 450</div>
-    </div>
+    <input id="promptInput" type="text" maxlength="450" placeholder="Type your cinematic idea..." />
+    <button onclick="generateVideo()">🎬 Generate</button>
+    <p id="charCount">0 / 450</p>
 
-    <div id="loadingScreen" class="loading">
-      <p>🧠 BenjiBot is creating your video...</p>
-      <div class="progress-circle" id="progressCircle"></div>
-    </div>
+    <p>🧠 BenjiBot is creating your video...</p>
+    <p>🎁 <strong>2 free videos left</strong></p>
+    <p class="watermark">ByBenji</p>
 
-    <section class="free-videos">
-      <p>🎥 2 free videos left</p>
-      <p id="videoResultText">ByBenji</p>
-    </section>
+    <h3 class="section-title">🎰 Spin the Wheel</h3>
+    <button onclick="spinWheel()">Spin Now</button>
+    <p id="wheelResult"></p>
 
-    <section class="spin-wheel">
-      <h3>🎰 Spin the Wheel</h3>
-      <button onclick="spinWheel()">Spin Now</button>
-      <p id="wheelResult"></p>
-    </section>
-
-    <section class="credits">
-      <h3>💎 Credits & Subscriptions</h3>
-      <p>5 Credits = $10 → 2 Videos</p>
-      <p>Max Mode = 30s, 1 Free Monthly</p>
-      <button>Buy Credits</button>
-      <button>Compare Plans</button>
-    </section>
+    <h3 class="section-title">💎 Credits & Subscriptions</h3>
+    <p>5 Credits = $10 → 2 Videos<br>Max Mode = 30s, 1 Free Monthly</p>
+    <button>Buy Credits</button>
+    <button>Compare Plans</button>
 
     <footer>
       <p>© 2025 BTprod. All rights reserved.</p>
       <p>No refunds. For help, contact <strong>helpmebenji@aol.com</strong></p>
     </footer>
+  </div>
+
+  <div id="loadingScreen" style="display: none;">
+    <div id="progressCircle" class="progress-circle"></div>
+    <p>BenjiBot is creating your video.</p>
   </div>
 
   <script src="script.js"></script>
