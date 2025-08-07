@@ -39,3 +39,34 @@
   <script src="main.js"></script>
 </body>
 </html>
+<script src="main.js"></script>
+const input = document.getElementById("promptInput");
+const charCount = document.getElementById("charCount");
+
+input.addEventListener("input", () => {
+  charCount.textContent = `${input.value.length} / 450`;
+});
+
+function generateVideo() {
+  document.getElementById("loadingScreen").style.display = "block";
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += 5;
+    document.getElementById("progressCircle").style.transform = `rotate(${progress * 3.6}deg)`;
+    if (progress >= 100) {
+      clearInterval(interval);
+      alert("Video ready! Fading into 'ByBenji' now.");
+      document.getElementById("loadingScreen").style.display = "none";
+    }
+  }, 100);
+}
+
+function spinWheel() {
+  const outcome = Math.random();
+  if (outcome < 0.25) {
+    document.getElementById("wheelResult").textContent = "🎉 You won a Free Prompt!";
+  } else {
+    document.getElementById("wheelResult").textContent = "🙁 Try Again Later.";
+  }
+}
