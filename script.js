@@ -1,23 +1,55 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const generateBtn = document.getElementById("generate-btn");
-  const statusText = document.getElementById("status-text");
-  const progressCircle = document.querySelector(".progress-circle");
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
 
-  generateBtn.addEventListener("click", function () {
-    let percent = 0;
-    statusText.textContent = "BenjiBot is creating your video...";
+.container {
+  padding: 20px;
+  text-align: center;
+}
 
-    const interval = setInterval(() => {
-      percent += 1;
-      progressCircle.style.background = `conic-gradient(#00ffcc ${percent * 3.6}deg, #222 0deg)`;
-      if (percent >= 100) {
-        clearInterval(interval);
-        statusText.textContent = "Video is ready! 🎬";
-        // Optional: Redirect or display sample.mp4
-        setTimeout(() => {
-          window.location.href = "sample.mp4"; // Replace this with actual video result later
-        }, 1000);
-      }
-    }, 50);
-  });
-});
+textarea {
+  width: 90%;
+  height: 120px;
+  background-color: #111;
+  border: 1px solid #444;
+  color: white;
+  padding: 10px;
+  resize: none;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: red;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#loadingScreen {
+  display: none;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.progress-circle {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #00f;
+  border-top: 6px solid red;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
