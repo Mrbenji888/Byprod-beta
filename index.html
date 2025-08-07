@@ -2,71 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BTprod.com</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>BTprod.com</h1>
-      <p class="tagline">Next-Level AI Video Generator</p>
-    </header>
 
+  <header>
+    <h1>BTprod.com</h1>
+    <p>Next-Level AI Video Generator</p>
+  </header>
+
+  <main>
     <section class="prompt-section">
-      <textarea id="promptInput" maxlength="450" placeholder="Type your idea here..."></textarea>
+      <input type="text" id="promptInput" placeholder="Type your idea here..." maxlength="450" />
       <button onclick="generateVideo()">Generate</button>
       <p id="charCount">0 / 450</p>
     </section>
 
-    <div id="loadingScreen">
+    <section id="loadingScreen">
       <div class="progress-circle" id="progressCircle"></div>
-      <p>BenjiBot is creating your video...</p>
-    </div>
+      <p>🧠 BenjiBot is creating your video...</p>
+    </section>
 
     <section class="spin-wheel-section">
-      <h3>🎡 Spin the Wheel</h3>
+      <h3>🎰 Spin the Wheel</h3>
       <button onclick="spinWheel()">Spin Now</button>
       <div id="wheelResult"></div>
     </section>
 
-    <footer>
-      <p>&copy; 2025 BTprod. All rights reserved.</p>
-      <p class="fine-print">No refunds. For help, contact helpmebenji@aol.com</p>
-    </footer>
-  </div>
+    <section class="video-preview">
+      <p>2 free videos left</p>
+      <img src="sample-video-preview.jpg" alt="Video Preview" />
+      <p class="watermark">ByBenji</p>
+    </section>
 
-  <script src="main.js"></script>
+    <section class="credits">
+      <h4>🔥 Want more credits?</h4>
+      <p>5 Credits = $10 → 2 videos</p>
+      <button class="buy-btn">Buy Credits</button>
+      <button class="compare-btn">Compare plans</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BTprod. All rights reserved.</p>
+    <p class="fine-print">No refunds. For help, contact helpmebenji@aol.com</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-<script src="main.js"></script>
-const input = document.getElementById("promptInput");
-const charCount = document.getElementById("charCount");
-
-input.addEventListener("input", () => {
-  charCount.textContent = `${input.value.length} / 450`;
-});
-
-function generateVideo() {
-  document.getElementById("loadingScreen").style.display = "block";
-
-  let progress = 0;
-  const interval = setInterval(() => {
-    progress += 5;
-    document.getElementById("progressCircle").style.transform = `rotate(${progress * 3.6}deg)`;
-    if (progress >= 100) {
-      clearInterval(interval);
-      alert("Video ready! Fading into 'ByBenji' now.");
-      document.getElementById("loadingScreen").style.display = "none";
-    }
-  }, 100);
-}
-
-function spinWheel() {
-  const outcome = Math.random();
-  if (outcome < 0.25) {
-    document.getElementById("wheelResult").textContent = "🎉 You won a Free Prompt!";
-  } else {
-    document.getElementById("wheelResult").textContent = "🙁 Try Again Later.";
-  }
-}
