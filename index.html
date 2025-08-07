@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BTprod Video Generator</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BTprod.com</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>BTprod Video Generator</h1>
-  <p>Welcome to the beta version!</p>
+  <div class="container">
+    <header>
+      <h1>BTprod.com</h1>
+      <p class="tagline">Next-Level AI Video Generator</p>
+    </header>
 
-  <button onclick="generateVideo()">Generate Video</button>
-  <video id="videoPlayer" width="320" height="240" controls style="display:none;">
-    <source src="sample.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+    <section class="prompt-section">
+      <textarea id="promptInput" maxlength="450" placeholder="Type your idea here..."></textarea>
+      <button onclick="generateVideo()">Generate</button>
+      <p id="charCount">0 / 450</p>
+    </section>
 
-  <script src="script.js"></script>
+    <div id="loadingScreen">
+      <div class="progress-circle" id="progressCircle"></div>
+      <p>BenjiBot is creating your video...</p>
+    </div>
+
+    <section class="spin-wheel-section">
+      <h3>🎡 Spin the Wheel</h3>
+      <button onclick="spinWheel()">Spin Now</button>
+      <div id="wheelResult"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 BTprod. All rights reserved.</p>
+      <p class="fine-print">No refunds. For help, contact helpmebenji@aol.com</p>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
