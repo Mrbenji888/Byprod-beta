@@ -1,43 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BTprod.com</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BTprod.com — AI Video Generator</title>
+  <meta name="theme-color" content="#000000" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1 class="site-title">BTprod.com</h1>
-    <p class="subtitle">Next-Level AI Video Generator</p>
+  <!-- App Shell -->
+  <div class="page">
 
-    <input id="promptInput" type="text" maxlength="450" placeholder="Type your cinematic idea..." />
-    <button onclick="generateVideo()">🎬 Generate</button>
-    <p id="charCount">0 / 450</p>
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <span class="logo neon-blue">BTprod</span><span class="logo-dot neon-red">.com</span>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-link">Pricing</a>
+        <a href="#" class="nav-link">Sign In</a>
+      </nav>
+    </header>
 
-    <p>🧠 BenjiBot is creating your video...</p>
-    <p>🎁 <strong>2 free videos left</strong></p>
-    <p class="watermark">ByBenji</p>
+    <!-- Hero / Prompt -->
+    <section class="hero">
+      <h1 class="title">
+        <span class="title-line">Let’s</span>
+        <span class="title-line accent">Get It Done.</span>
+      </h1>
+      <p class="subtitle">Turn thoughts into cinematic AI videos. Type a prompt, hit generate, watch the magic.</p>
 
-    <h3 class="section-title">🎰 Spin the Wheel</h3>
-    <button onclick="spinWheel()">Spin Now</button>
-    <p id="wheelResult"></p>
+      <div class="prompt-wrap">
+        <textarea id="promptInput" class="prompt" maxlength="450" placeholder="A chrome samurai stepping through neon rain, shallow depth of field, slow dolly …"></textarea>
+        <div class="prompt-row">
+          <div id="charCount" class="char">0 / 450</div>
+          <div class="chips">
+            <span class="chip chip-blue">8s</span>
+            <span class="chip chip-red">Max 30s</span>
+          </div>
+        </div>
+        <div class="cta-row">
+          <button id="generateBtn" class="btn btn-primary" onclick="generateVideo()">LET’S GET IT DONE</button>
+          <button class="btn btn-ghost">How This Works</button>
+        </div>
+      </div>
+    </section>
 
-    <h3 class="section-title">💎 Credits & Subscriptions</h3>
-    <p>5 Credits = $10 → 2 Videos<br>Max Mode = 30s, 1 Free Monthly</p>
-    <button>Buy Credits</button>
-    <button>Compare Plans</button>
+    <!-- Loading Overlay -->
+    <div id="loadingScreen" class="loading hidden" aria-hidden="true">
+      <div class="loader">
+        <div class="ring">
+          <div class="dot"></div>
+        </div>
+        <div class="loader-text">BenjiBot is creating your video…</div>
+        <div id="loaderPct" class="loader-pct">0%</div>
+      </div>
+    </div>
 
-    <footer>
-      <p>© 2025 BTprod. All rights reserved.</p>
-      <p>No refunds. For help, contact <strong>helpmebenji@aol.com</strong></p>
+    <!-- Spin + Previews -->
+    <section class="deck">
+      <div class="card spin">
+        <h2 class="card-title neon-red">🎡 Spin the Wheel</h2>
+        <div class="wheel-wrap">
+          <div id="wheel" class="wheel">
+            <!-- purely visual; JS spins the whole wheel -->
+            <div class="wheel-center"></div>
+          </div>
+          <div class="wheel-pointer"></div>
+        </div>
+        <button class="btn btn-outline" onclick="spinWheel()">SPIN</button>
+        <div id="wheelResult" class="result"></div>
+      </div>
+
+      <div class="card previews">
+        <h2 class="card-title neon-blue">Preview</h2>
+        <div class="preview-grid">
+          <div class="preview">
+            <div class="preview-img"></div>
+            <div class="wm">ByBenji</div>
+          </div>
+          <div class="preview">
+            <div class="preview-img alt"></div>
+            <div class="wm">ByBenji</div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-danger">WATCH AD</button>
+          <button class="btn btn-primary">SHARE ZONE</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credits -->
+    <section class="card credits">
+      <h2 class="card-title">💎 Credits & Plans</h2>
+      <p class="muted">5 credits = $10 → 2 videos · Max Mode (30s) = $25 · 1 free Max monthly with subscription</p>
+      <div class="btn-row">
+        <button class="btn btn-primary">Buy Credits</button>
+        <button class="btn btn-ghost">Compare Plans</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="fine">
+        © 2025 BTprod. All rights reserved · No refunds · Support: <span class="underline">helpmebenji@aol.com</span>
+      </div>
     </footer>
-  </div>
 
-  <div id="loadingScreen" style="display: none;">
-    <div id="progressCircle" class="progress-circle"></div>
-    <p>BenjiBot is creating your video.</p>
-  </div>
+  </div><!-- /page -->
 
   <script src="script.js"></script>
 </body>
